@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import view.elements.ProductInformationBox?>
+
+<!--<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.AddProductController"
+      spacing="10"
+      prefHeight="400.0" prefWidth="600.0">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>-->
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.AddProductController"
+      spacing="10"
+      alignment="CENTER"
+      prefHeight="600.0" prefWidth="400.0">
+    <padding><Insets top="10" right="5" bottom="5" left="5"/></padding>
+
+
+    <ProductInformationBox fx:id="productInformationPanel"/>
+
+    <Label text="Enter values for 100g of product!" style="-fx-font-size: 15; -fx-font-weight: bold;"/>
+
+    <Text fx:id="message"/>
+
+    <HBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <Button fx:id="okButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Ok" onMouseClicked="#okButtonClicked"/>
+        <Button fx:id="cancelButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Cancel" onMouseClicked="#cancelButtonClicked"/>
+        <Button fx:id="addProductButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Add product" onMouseClicked="#addProductButtonClicked">
+
+            <!-- This button needs to aligned to the bottom of the VBox -->
+            <VBox.margin>
+                <Insets top="161.0"/>
+            </VBox.margin>
+        </Button>
+    </HBox>
+
+</VBox>

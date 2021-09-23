@@ -1,0 +1,102 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import view.elements.CalendarPane?>
+
+<?import view.elements.SummaryBox?>
+<?import view.elements.AppMenu?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+    <AppMenu fx:id="menu">
+
+    </AppMenu>
+    <HBox spacing="10">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+        <!--left panel-->
+    <VBox spacing="20">
+        <!--back image, date label and forward image-->
+        <GridPane>
+            <padding><Insets left="10.0" right="10.0"/></padding>
+
+            <columnConstraints>
+                <ColumnConstraints prefWidth="175.0" />
+                <ColumnConstraints prefWidth="250.0" />
+                <ColumnConstraints prefWidth="175.0" />
+            </columnConstraints>
+            <ImageView
+                    fx:id="backIcon"
+                    fitHeight="50.0"
+                    fitWidth="50.0"
+                    layoutX="61.0"
+                    layoutY="83.0"
+                    pickOnBounds="true"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="0" GridPane.columnSpan="1"
+                    GridPane.rowSpan="1" GridPane.halignment="LEFT"
+                    onMouseClicked="#back">
+                <Image
+                        url="leftArrow.png"
+                        backgroundLoading="true"/></ImageView>
+
+
+            <Label fx:id="date" GridPane.columnIndex="1"
+                   GridPane.rowIndex="0" GridPane.columnSpan="1"
+                   GridPane.rowSpan="1" GridPane.halignment="CENTER">
+                <font>
+                    <Font name="Arial" size="24"/>
+                </font>
+                <GridPane.margin>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </GridPane.margin>
+            </Label>
+
+            <ImageView
+                    fx:id="forwardIcon"
+                    fitHeight="50.0"
+                    fitWidth="50.0"
+                    layoutX="61.0"
+                    layoutY="83.0"
+                    pickOnBounds="true"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="0" GridPane.columnSpan="1"
+                    GridPane.rowSpan="1" GridPane.halignment="RIGHT"
+                    onMouseClicked="#forward">
+                <Image
+                        url="rightArrow.png"
+                        backgroundLoading="true"/>
+            </ImageView>
+        </GridPane>
+
+        <!--days panel-->
+        <CalendarPane fx:id="calendarPane" alignment="CENTER"/>
+
+    </VBox>
+
+    <!--right panel-->
+    <VBox>
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        <spacing>10</spacing>
+        <Button fx:id="addProductButton" style="-fx-font-size: 15;"
+                text="Add product" minHeight="50" minWidth="150"
+                onAction="#addProductClicked"/>
+
+        <Button fx:id="addMealButton" style="-fx-font-size: 15;"
+                text="Add meal" minHeight="50" minWidth="150"
+                onAction="#addMealClicked"/>
+
+        <SummaryBox fx:id="summaryBox"/>
+
+        <Button fx:id="settingsButton"
+                onAction="#settingsClicked"
+                text="Settings"
+                style="-fx-font-size: 15;"
+                minHeight="50" minWidth="150">
+        </Button>
+
+
+    </VBox>
+    </HBox>
+</VBox>

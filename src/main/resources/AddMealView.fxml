@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import view.elements.MealBox?>
+<?import view.elements.SummaryPane?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.AddMealController"
+      spacing="10"
+      alignment="CENTER"
+      prefHeight="600.0" prefWidth="400.0" >
+    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+
+    <HBox>
+        <Label text="Product" alignment="CENTER" prefWidth="200" maxWidth="Infinity" />
+        <Label text="Weight (g)" alignment="CENTER" prefWidth="200" maxWidth="Infinity"  />
+    </HBox>
+
+    <MealBox fx:id="mealBox"/>
+
+    <Button fx:id="clear" text="Clear" onAction="#clearButtonClicked" prefWidth="Infinity"/>
+    <TextField fx:id="mealNameInput" promptText="Name of the meal"/>
+
+
+    <SummaryPane fx:id="summaryPane" alignment="CENTER" >
+        <columnConstraints>
+            <ColumnConstraints prefWidth="100"/> <ColumnConstraints prefWidth="50"/>
+        <ColumnConstraints prefWidth="100" /> <ColumnConstraints prefWidth="50"/>
+        </columnConstraints>
+        <Label text="Calories: " GridPane.columnIndex="0"/>
+        <Label text="Carbs: " GridPane.columnIndex="2"/>
+        <Label text="Proteins: " GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label text="Fats: " GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    </SummaryPane>
+
+    <Text fx:id="message" style="-fx-font-size: 12;"/>
+
+    <HBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <Button fx:id="okButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Ok" onMouseClicked="#okButtonClicked"/>
+        <Button fx:id="cancelButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Cancel" onMouseClicked="#cancelButtonClicked"/>
+        <Button fx:id="addMealButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Add meal" onMouseClicked="#addMealButtonClicked">
+
+            <!-- This button needs to aligned to the bottom of the VBox -->
+            <VBox.margin>
+                <Insets top="161.0"/>
+            </VBox.margin>
+        </Button>
+    </HBox>
+</VBox>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import view.elements.SpecificRegisterTableView?>
+<?import view.elements.SummaryPane?>
+
+<?import view.elements.AppMenu?>
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.SpecificDayController">
+    <AppMenu fx:id="menu"/>
+    <VBox spacing="10">
+        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+    <!--back image, date label-->
+    <GridPane>
+        <padding>
+            <Insets left="10.0" right="10.0"/>
+        </padding>
+
+        <columnConstraints>
+            <ColumnConstraints prefWidth="175.0" />
+            <ColumnConstraints prefWidth="250.0" />
+            <ColumnConstraints prefWidth="175.0" />
+        </columnConstraints>
+        <ImageView
+                fx:id="backIcon"
+                fitHeight="50.0"
+                fitWidth="50.0"
+                layoutX="61.0"
+                layoutY="83.0"
+                pickOnBounds="true"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="0" GridPane.columnSpan="1"
+                GridPane.rowSpan="1" GridPane.halignment="LEFT"
+                onMouseClicked="#back">
+            <Image
+                    url="leftArrow.png"
+                    backgroundLoading="true"/>
+        </ImageView>
+
+
+        <Label fx:id="date" GridPane.columnIndex="1"
+               GridPane.rowIndex="0" GridPane.columnSpan="2"
+               GridPane.rowSpan="1" GridPane.halignment="CENTER">
+            <font>
+                <Font name="Arial" size="24"/>
+            </font>
+            <GridPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </GridPane.margin>
+        </Label>
+    </GridPane>
+
+    <HBox>
+        <SpecificRegisterTableView fx:id="firstPanel" prefWidth="390" prefHeight="300">
+            <columns>
+                <TableColumn prefWidth="78" text="Name" fx:id="nameFirstCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65" text="Grams" fx:id="gramsFirstCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="totalGrams"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65.0" text="Calories" fx:id="caloriesFirstCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="calories"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65.0" text="Carbs" fx:id="carbsFirstCol" reorderable="false" resizable="false" >
+                    <cellValueFactory><PropertyValueFactory property="carbs"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="60.0" text="Proteins" fx:id="proteinsFirstCol" reorderable="false" resizable="false" >
+                    <cellValueFactory><PropertyValueFactory property="proteins"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="55.0" text="Fats" fx:id="fatsFirstCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="fats"/></cellValueFactory>
+                </TableColumn>
+            </columns>
+        </SpecificRegisterTableView>
+
+        <SpecificRegisterTableView fx:id="secondPanel" prefWidth="390" prefHeight="300" >
+            <columns>
+                <TableColumn prefWidth="78" text="Name" fx:id="nameSecondCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65.0" text="Grams" fx:id="gramsSecondCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="totalGrams"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65.0" text="Calories" fx:id="caloriesSecondCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="calories"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="65.0" text="Carbs" fx:id="carbsSecondCol" reorderable="false" resizable="false" >
+                    <cellValueFactory><PropertyValueFactory property="carbs"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="60.0" text="Proteins" fx:id="proteinsSecondCol" reorderable="false" resizable="false">
+                    <cellValueFactory><PropertyValueFactory property="proteins"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="55.0" text="Fats" fx:id="fatsSecondCol" reorderable="false" resizable="false" >
+                    <cellValueFactory><PropertyValueFactory property="fats"/></cellValueFactory>
+                </TableColumn>
+            </columns>
+        </SpecificRegisterTableView>
+    </HBox>
+
+            <SummaryPane fx:id="summary" alignment="CENTER" GridPane.columnIndex="1">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="100" /> <ColumnConstraints prefWidth="50"/>
+                    <ColumnConstraints prefWidth="100" /> <ColumnConstraints prefWidth="50"/>
+                </columnConstraints>
+                <Label text="Calories: " style="-fx-font-size: 15" GridPane.columnIndex="0"/>
+                <Label text="Carbs: " style="-fx-font-size: 15" GridPane.columnIndex="2"/>
+                <Label text="Proteins: " style="-fx-font-size: 15" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label text="Fats: " style="-fx-font-size: 15" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            </SummaryPane>
+
+
+    <HBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <Button maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Delete" onAction="#delete"/>
+        <TextField fx:id="nameInput" maxWidth="100" promptText="search"
+                prefWidth="500.0" onAction="#add"/>
+        <TextField fx:id="weightInput" maxWidth="100" promptText="weight"
+                prefWidth="500.0" onAction="#add"/>
+        <Button maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Add" onAction="#add">
+
+            <!-- This button needs to aligned to the bottom of the VBox -->
+            <VBox.margin>
+                <Insets top="161.0"/>
+            </VBox.margin>
+        </Button>
+    </HBox>
+    </VBox>
+</VBox>

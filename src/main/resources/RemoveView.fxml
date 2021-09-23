@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import view.elements.OverviewRegisterTableView?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.RemoveController"
+      prefHeight="400.0" prefWidth="600.0" spacing="10">
+    <padding><Insets top="5" bottom="5"/></padding>
+    <OverviewRegisterTableView fx:id="panel" prefWidth="390" prefHeight="300">
+        <columns>
+            <TableColumn prefWidth="78" text="Name" fx:id="nameFirstCol" reorderable="false" resizable="false">
+                <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="55" text="Grams" fx:id="gramsFirstCol" reorderable="false" resizable="false">
+                <cellValueFactory><PropertyValueFactory property="totalGrams"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="55" text="Calories" fx:id="caloriesFirstCol" reorderable="false" resizable="false">
+                <cellValueFactory><PropertyValueFactory property="calories"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="55" text="Carbs" fx:id="carbsFirstCol" reorderable="false" resizable="false" >
+                <cellValueFactory><PropertyValueFactory property="carbs"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="56" text="Proteins" fx:id="proteinsFirstCol" reorderable="false" resizable="false" >
+                <cellValueFactory><PropertyValueFactory property="proteins"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="45" text="Fats" fx:id="fatsFirstCol" reorderable="false" resizable="false">
+                <cellValueFactory><PropertyValueFactory property="fats"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="54" text="Type" fx:id="type" reorderable="false" resizable="false">
+                <cellValueFactory><PropertyValueFactory property="type"/></cellValueFactory>
+            </TableColumn>
+        </columns>
+    </OverviewRegisterTableView>
+
+    <HBox alignment="CENTER">
+        <TextField fx:id="search" promptText="search"/>
+        <Button fx:id="delete" text="delete" onAction="#deleteClicked"/>
+    </HBox>
+
+    <Label wrapText="true" alignment="CENTER" text="Deleted items will be still in your day registries, but you will be able to add item with this name." style="-fx-font-size: 15; -fx-font-weight: bold;">
+    <padding><Insets left="10" right="0"></Insets></padding></Label>
+</VBox>

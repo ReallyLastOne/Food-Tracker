@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.SettingsController"
+      spacing="10"
+      prefHeight="400.0" prefWidth="600.0">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+    <ToggleSwitch fx:id="darkModeSwitcher" text="Dark Mode:" onMouseClicked="#switchDarkMode" />
+
+    <HBox spacing="10">
+        <Label text="Daily calories:" />
+        <TextField fx:id="dailyCaloriesInput" prefWidth="50" alignment="CENTER" />
+    </HBox>
+
+    <HBox spacing="5">
+        <Label text="Macros: (carbs, protein, fats)" prefWidth="150"/>
+        <TextField fx:id="carbsPercentInput" prefWidth="40"/>
+        <TextField fx:id="proteinsPercentInput" prefWidth="40"/>
+        <TextField fx:id="fatsPercentInput" prefWidth="40"/>
+    </HBox>
+
+    <VBox alignment="CENTER">
+        <Text fx:id="message"/>
+    </VBox>
+
+    <HBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <Button fx:id="okButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Ok" onMouseClicked="#okButtonClicked"/>
+        <Button fx:id="cancelButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Cancel" onMouseClicked="#cancelButtonClicked"/>
+        <Button fx:id="applySettingsButton" maxWidth="100" mnemonicParsing="false"
+                prefWidth="500.0" text="Apply settings" onMouseClicked="#applySettingsClicked">
+
+            <!-- This button needs to aligned to the bottom of the VBox -->
+            <VBox.margin>
+                <Insets top="161.0"/>
+            </VBox.margin>
+        </Button>
+
+
+    </HBox>
+
+</VBox>
