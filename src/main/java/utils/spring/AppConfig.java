@@ -12,19 +12,5 @@ public class AppConfig {
     public CalendarDay getCalendarDay() {
         return CalendarDay.getCurrentCalendarDay();
     }
-
-   /* @Bean
-    public MainController getMainController() throws IOException {
-        return (MainController) new SpringFxmlLoader().getController();
-    }*/
-  /*  @Bean
-    public CalendarPage getCalendarPage() {
-        return new CalendarPage();
-    }*/
-
-    /*@Bean
-    public CalendarPane getCalendarPane() {
-        return new CalendarPane();
-    }*/
 }
 
